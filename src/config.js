@@ -1,5 +1,5 @@
 const clientId = "0f9a4ead106e4e5d8951e059417efcbb"; 
-const redirectUri = "https://spotifywrappedproject.vercel.app//callback"; 
+const redirectUri = "https://spotifywrappedproject.vercel.app/callback"; 
 const scopes = [
     "user-read-private",
     "user-read-email",

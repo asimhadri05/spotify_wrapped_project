@@ -281,6 +281,8 @@ def spotify_auth(request):
         try:
             data = json.loads(request.body)
             code = data.get("code")
+
+            print(data)
             
             if not code:
                 return JsonResponse({"error": "Authorization code is missing"}, status=400)

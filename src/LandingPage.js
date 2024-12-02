@@ -8,7 +8,7 @@ const LandingPage = () => {
 
     useEffect(() => {
         // Fetch public wraps
-        fetch('http://127.0.0.1:8000/api/get-public-wraps')
+        fetch('https://spotify-wrapped-project.onrender.com/api/get-public-wraps')
             .then(response => response.json())
             .then(data => setPublicWraps(data.public_wraps))
             .catch(error => console.error("Error fetching public wraps:", error));

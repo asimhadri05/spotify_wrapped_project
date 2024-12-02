@@ -14,7 +14,8 @@ from pathlib import Path
 
 import environ
 import os
-import dj_database_url;
+
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -30,17 +31,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^a@0zes6a1*$lt#ypt2*utf1j(c$-($comv7_!$^1!0(s+0xeu'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'your-backend-service.onrender.com',  # Render backend URL
-    'https://spotifywrappedproject-cr79vmlpo-adityas-projects-be19f47a.vercel.app/',   # Vercel frontend URL
-]
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(" ")
+
+
 
 
 
@@ -113,12 +111,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT', default='5432'),
     }
 }
+
+database_url = env("DATABASE_URL")
+
+DATABASES["default"] = dj_database_url.parse(database_url)
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

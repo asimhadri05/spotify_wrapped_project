@@ -36,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(" ")
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split()
 
 
 
@@ -70,6 +70,9 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://spotify-wrapped-project.onrender.com",
+    "https://spotifywrappedproject-fyghkil2j-adityas-projects-be19f47a.vercel.app",
+
 ]
 
 ROOT_URLCONF = 'backend.urls'

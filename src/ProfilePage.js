@@ -39,7 +39,7 @@ const ProfilePage = () => {
     // Function to fetch the description from the backend
     const getDescription = () => {
         setIsGenerating(true); // Start loading animation
-        fetch('http://127.0.0.1:8000/api/get-description', {
+        fetch('https://spotify-wrapped-project.onrender.com/api/get-description', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ const ProfilePage = () => {
 
     const fetchSavedWraps = () => {
         if (userProfile) {
-            fetch(`http://127.0.0.1:8000/api/get-user-wraps/${userProfile.display_name}`)
+            fetch(`https://spotify-wrapped-project.onrender.com/api/get-user-wraps/${userProfile.display_name}`)
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.wraps) setSavedWraps(data.wraps);
@@ -78,7 +78,7 @@ const ProfilePage = () => {
     };
 
     const deleteWrap = (wrapId) => {
-        fetch(`http://127.0.0.1:8000/api/delete-wrap/${wrapId}`, {
+        fetch(`https://spotify-wrapped-project.onrender.com/api/delete-wrap/${wrapId}`, {
             method: "DELETE",
         })
             .then((response) => {
@@ -93,7 +93,7 @@ const ProfilePage = () => {
 
     const deleteAccount = async (displayName) => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/delete-wraps/${displayName}/`, {
+            const response = await fetch(`https://spotify-wrapped-project.onrender.com/api/delete-wraps/${displayName}/`, {
                 method: "DELETE",
             });
     
@@ -120,7 +120,7 @@ const ProfilePage = () => {
     };
 
     const toggleVisibility = (wrapId, isPublic) => {
-        fetch(`http://127.0.0.1:8000/api/update-wrap-visibility/${wrapId}`, {
+        fetch(`https://spotify-wrapped-project.onrender.com/api/update-wrap-visibility/${wrapId}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ is_public: !isPublic }),

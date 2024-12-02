@@ -9,7 +9,7 @@ const SpotifyCallback = () => {
         const code = query.get("code");
 
         if (code) {
-            fetch("http://127.0.0.1:8000/api/spotify-auth", {
+            fetch("https://spotify-wrapped-project.onrender.com/api/spotify-auth", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

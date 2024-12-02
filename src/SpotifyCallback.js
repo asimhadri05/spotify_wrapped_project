@@ -8,6 +8,8 @@ const SpotifyCallback = () => {
         const query = new URLSearchParams(window.location.search);
         const code = query.get("code");
 
+        console.log(code);
+
         if (code) {
             fetch("https://spotify-wrapped-project.onrender.com/api/spotify-auth", {
                 method: "POST",
